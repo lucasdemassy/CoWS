@@ -1,0 +1,21 @@
+# DDL
+
+CREATE DATABASE weatherStationDB
+
+# DML
+
+# CONTEXT-DATABASE: weatherStationDB
+
+temperature value=10.00,description="Température",units="C" 1579599778 
+pressure value=994.97,description="Pression",units="hP" 1579599778 
+humidity value=50.0,description="Humidité",units="%" 1579599778 
+luminosity value=1,description="Luminosité",units="Lux" 1579599778 
+wind_heading value=191.019948267497,description="Direction du vent",units="°" 1579599778 
+wind_speed_avg value=42.3,description="Force moyenne du vent",units="Kts" 1579599778 
+wind_speed_max value=58.3,description="Force maxi du vent",units="Kts" 1579599778 
+wind_speed_min value=25.8,description="Force moyenne du vent",units="Kts" 1579599778 
+wind_heading value=145.019948267497,description="Direction du vent",units="°" 1579799778 
+wind_speed_avg value=46.3,description="Force moyenne du vent",units="Kts" 1579799778 
+wind_speed_max value=52.3,description="Force maxi du vent",units="Kts" 1579799778 
+wind_speed_min value=29.8,description="Force moyenne du vent",units="Kts" 1579799778 
+rain value=1,description="Dates des basculements",units="date" 1579599778

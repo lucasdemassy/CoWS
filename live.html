@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+  <head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style2.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+     integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+     crossorigin=""></script>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+	 <!-- Plotly JS -->
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  </head>
+
+  <body class="is-preload">
+
+		<section id="header">
+			<header>
+				<a href="index.html"><img src="images/cow.png"/></a><br />
+				<d>COWS Live</d><br /><br /><br />
+				<button id="archive" type="button" onclick="window.location.href = 'archive.html'"> Go to Archive </button>
+		
+			</header>
+			
+			<footer>
+				<a href="#banner" class="button style2 scrolly-middle">Continue on live</a>
+			</footer>
+		</section>
+
+
+
+		<section id="banner">
+
+		<div style="width: 50%">
+			Check the wanted data : 
+			<label><input type="checkbox" name="askedData[]" id="temperature" checked> Temperature </label>
+		<label><input type="checkbox" name="askedData[]" id="wind" checked>  Wind</label>
+		<label><input type="checkbox" name="askedData[]" id="pressure" checked>  Pressure</label>
+		<label><input type="checkbox" name="askedData[]" id="humidity" checked>  Humidity</label>
+		<label><input type="checkbox" name="askedData[]" id="luminosity" checked>  Luminosity</label>
+		<label><input type="checkbox" name="askedData[]" id="rain" checked>  Rain</label>
+	    <!--<button id="locker" type="button" name="button" onclick="manageDraggingMap()" value="unlock"> Verrouiller </button>
+		-->
+		
+		<div id="map"></div>
+
+		</div>
+
+		<div id="stats">
+			<div id="error"></div>
+	      	<nav>
+
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+  					<il class= "nav-item"><a class="nav-link active" id="nav-temperature-tab" data-toggle="tab" href="#nav-temperature" role="tab" aria-controls="nav-temperature" aria-selected="true"> Temperature </a></il>
+					<il class= "nav-item"><a class="nav-link" id="nav-wind-tab" data-toggle="tab" href="#nav-wind" role="tab" aria-controls="nav-wind" aria-selected="false"> Wind </a></il>
+					<il class= "nav-item"><a class="nav-link" id="nav-pressure-tab" data-toggle="tab" href="#nav-pressure" role="tab" aria-controls="nav-pressure" aria-selected="false"> Pressure </a></il>
+					<il class= "nav-item"><a class="nav-link" id="nav-humidity-tab" data-toggle="tab" href="#nav-humidity" role="tab" aria-controls="nav-humidity" aria-selected="false"> Humidity </a></il>
+					<il class= "nav-item"><a class="nav-link" id="nav-luminosity-tab" data-toggle="tab" href="#nav-luminosity" role="tab" aria-controls="nav-luminosity" aria-selected="false"> Luminosity </a></il>
+					<il class= "nav-item"><a class="nav-link" id="nav-rain-tab" data-toggle="tab" href="#nav-rain" role="tab" aria-controls="nav-rain" aria-selected="false"> Rain </a></il>
+
+				</ul>
+      		</nav>
+      <div class="tab-content" id="nav-tabContent">
+
+		<div class="tab-pane fade" id="nav-temperature" role="tabpanel" aria-labelledby="nav-temperature-tab">
+			
+		</div>
+				
+		<div class="tab-pane fade" id="nav-wind" role="tabpanel" aria-labelledby="nav-wind-tab">
+			
+		</div>
+
+        <div class="tab-pane fade" id="nav-pressure" role="tabpanel" aria-labelledby="nav-pressure-tab">
+				
+		</div>
+		
+		<div class="tab-pane fade" id="nav-humidity" role="tabpanel" aria-labelledby="nav-humidity-tab">
+			
+		</div>
+
+		<div class="tab-pane fade" id="nav-luminosity" role="tabpanel" aria-labelledby="nav-luminosity-tab">
+			
+		</div>
+		<div class="tab-pane fade" id="nav-rain" role="tabpanel" aria-labelledby="nav-rain-tab">
+			
+		</div>
+
+        
+	  
+		</div>
+
+		</div>
+
+		</section>
+
+
+    <script src="live.js" charset="utf-8"></script>
+
+  </body>
+
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.poptrox.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+
+
+</html>

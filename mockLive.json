@@ -1,0 +1,123 @@
+{
+  "id": 9,
+  "metadata": {
+    "nom": "Piensg 009"
+  },
+  "coordinate": {
+    "longitude": 2.3522219,
+    "latitude": 48.856614,
+    "date": "2020-01-21T14:50:16+00:00",
+    "success": true
+  },
+  "measurements": {
+    "temperature": {
+      "description": [
+        "Température"
+      ],
+      "units": [
+        "date",
+        "C"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00",
+          25
+        ]
+      ]
+    },
+    "pressure": {
+      "description": [
+        "Pression"
+      ],
+      "units": [
+        "date",
+        "hP"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00",
+          1.1
+        ], [
+          "2020-02-21T14:50:16+00:00",
+          0
+        ],[
+          "2020-03-21T14:50:16+00:00",
+          2.5
+        ],[
+          "2020-04-21T14:50:16+00:00",
+          2.9
+        ],[
+          "2020-05-21T14:50:16+00:00",
+          0.5
+        ]
+      ]
+    },
+    "humidity": {
+      "description": [
+        "Humidité"
+      ],
+      "units": [
+        "date",
+        "%"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00",
+          30
+        ]
+      ]
+    },
+    "luminosity": {
+      "description": [
+        "Luminosité"
+      ],
+      "units": [
+        "date",
+        "Lux"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00",
+          130
+        ]
+      ]
+    },
+    "wind": {
+      "description": [
+        "Direction du vent",
+        "Force moyenne du vent",
+        "Force maxi du vent",
+        "Force mini du vent"
+      ],
+      "units": [
+        "date",
+        "°",
+        "Kts",
+        "Kts",
+        "Kts"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00",
+          30,
+          60,
+          45,
+          90
+        ]
+      ]
+    },
+    "rain": {
+      "description": [
+        "Dates des basculements"
+      ],
+      "units": [
+        "date"
+      ],
+      "data": [
+        [
+          "2020-01-21T14:50:16+00:00"
+        ]
+      ]
+    }
+  }
+}

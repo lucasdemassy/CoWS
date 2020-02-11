@@ -1,0 +1,32 @@
+{
+  "name": "cows",
+  "version": "1.0.0",
+  "description": "Connected Weather Station",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/tsi2019/cows.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/tsi2019/cows/issues"
+  },
+  "homepage": "https://gitlab.com/tsi2019/cows#README",
+  "devDependencies": {
+    "mocha": "^7.0.0"
+  },
+  "dependencies": {
+    "@drivetech/node-nmea": "^2.0.1",
+    "cron": "^1.8.2",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "gps": "^0.5.3",
+    "influx": "^5.5.1",
+    "node-nmea": "^2.0.0",
+    "serialport": "^8.0.6"
+  }
+}
