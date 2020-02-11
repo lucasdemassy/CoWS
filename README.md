@@ -32,3 +32,8 @@ Pour redémarrer le service site (weatherStation app)
 sudo systemctl restart site.service
 
 sudo systemctl status site.service
+
+### Doc:
+- NPM ink-docstrap
+- NPM jsdoc
+- https://samwize.com/2014/01/31/the-best-documentation-generator-for-node/
