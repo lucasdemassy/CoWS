@@ -1,14 +1,32 @@
-//const influx = require('influxdb-nodejs');
+/**
+* @const Cron is a tool that allows you to execute something on a schedule.
+*/
 const CronJob = require('cron').CronJob;
+
+/**
+* @const File management module.
+*/
 const fs = require('fs');
+
+/**
+* @const node-serialport library to read a stream of messages from a GlobalSat BU-353 USB GPS receiver.
+*/
 const nmea = require('@drivetech/node-nmea')
+
+/**
+* @const InfluxDB is an open source time series database.
+*/
 const influx = require("influx");
 
+/**
+* @const InfluxDB database name
+*/
 const DATABASE_NAME = 'weatherStationDB'
 
+/**
+* @description Initializing the influxDB database
+*/
 const influxClient = new influx.InfluxDB({});
-
-
 influxClient.getDatabaseNames()
   .then(names => {
     if (!names.includes(DATABASE_NAME)) {
@@ -16,21 +34,18 @@ influxClient.getDatabaseNames()
     }
   })
 
-/*
-const influxClient = new influx.InfluxDB({
-  host: 'localhost',
-  database: DATABASE_NAME
-});
 
+/**
+* @function
+* @name translateJson2InfluxText
+* @description Transform a json in a string which then can be read by InfluxDB
+* @param {json} jsonSrc
+* @returns {void}
 */
-
-//const client = new Influx('http://piensg011.ensg.eu/archive');
-
 function translateJson2InfluxText(jsonSrc){
     let fileText = '# DML \n# CONTEXT-DATABASE: pirates \n# CONTEXT-RETENTION-POLICY: oneyear; \n\n' //oneday
 
     for(let mes of jsonSrc.measure){
-
       let stringMes = mes.name + " ";
       stringMes += ",unit='" + mes.unit + "' ";
       stringMes += ",desc='" + mes.desc + "' ";
@@ -40,41 +55,45 @@ function translateJson2InfluxText(jsonSrc){
       fileText += stringMes + "\n";
     }
 
-
-      // fs.writeFile("/tmp/test", "Hey there!", function(err) {
-      // if(err) {
-        //   return console.log(err);
-      // }});
-
-      // console.log("The file was saved!");
-      console.log(fileText);
-  };
+    console.log(fileText);
+};
 
 
+/**
+* @function
+* @name translate_Json_InfluxPoint
+* @description Create an Array storing future influxDB rows
+* @param {json} jsonSrc
+* @returns {Array<json>}
+*/
 function translate_Json_InfluxPoint(jsonSrc){
   let listInfluxPoints = new Array();
 
   for(let mes of jsonSrc.measure){
-
     let influxPoint = {
           measurement: mes.name,
           tags: { unit: mes.unit, desc: mes.desc },
           fields: { value: mes.value},
           timestamp: Date.parse(jsonSrc.date)
-      };
-
+    };
     listInfluxPoints.push(influxPoint);
   }
 
-return(listInfluxPoints);
+  return(listInfluxPoints);
 }
 
+
+/**
+* @function
+* @name writerInflux
+* @description Write sensors data in the database
+* @param {string} input_file file path
+* @returns {void}
+*/
 function writerInflux(input_file){
 
   let textSrc = fs.readFileSync(input_file).toString();
-
   let jsonObject = JSON.parse(textSrc);
-
   let listPoints = translate_Json_InfluxPoint(jsonObject);
   console.log("Writing sensors data in the database")
 
@@ -96,6 +115,14 @@ function writerInflux(input_file){
 
 }
 
+
+/**
+* @function
+* @name writerInflux_GPS
+* @description Write GPS data in the database
+* @param {string} input_file file path
+* @returns {void}
+*/
 function writerInflux_GPS(input_file){
   let textSrc = fs.readFileSync(input_file).toString();
   let arrayOfLines = textSrc.match(/[^\r\n]+/g);
@@ -105,7 +132,6 @@ function writerInflux_GPS(input_file){
     let date = Date.parse(data.datetime);
     let lat = data.loc['geojson']['coordinates'][1];
     let lng = data.loc['geojson']['coordinates'][0];
-
 
     influxClient.writePoints([
     {
@@ -120,12 +146,17 @@ function writerInflux_GPS(input_file){
     }).catch(err => {
       console.error(`Error saving data to InfluxDB! ${err.stack}`)
     });
-
   }
-
-
 }
 
+
+/**
+* @function
+* @name writerInflux_rain
+* @description Write rain data in the database
+* @param {string} input_file file path
+* @returns {void}
+*/
 function writerInflux_rain(input_file){
   let textSrc = fs.readFileSync(input_file).toString();
   let arrayOfLines = textSrc.match(/[^\r\n]+/g);
@@ -147,7 +178,9 @@ function writerInflux_rain(input_file){
 }
 
 
-
+/**
+* @description Write data in the InfluxDB database every 20 minutes
+*/
 var job = new CronJob('0/20 * * * *', function() {
   writerInflux('/dev/shm/sensors');
   writerInflux_GPS("/dev/shm/gpsNmea");
