@@ -10,6 +10,7 @@ describe("Test", () => {
   it("addition", () => {
     assert.equal(3+8, 11);
   });
+  /*
   describe("DB", () => {
     const influx = require("influx");
     const influxClient = new influx.InfluxDB("http://localhost:8086/test");
@@ -27,4 +28,5 @@ describe("Test", () => {
       assert.equal(influxClient._options.database, "test");
     });
   });
+  */
 });
