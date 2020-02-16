@@ -1,25 +1,30 @@
 /**
-* @const Cron is a tool that allows you to execute something on a schedule.
+* Cron is a tool that allows you to execute something on a schedule.
+* @const CronJob
 */
 const CronJob = require('cron').CronJob;
 
 /**
-* @const File management module.
+* File management module.
+* @const fs
 */
 const fs = require('fs');
 
 /**
-* @const node-serialport library to read a stream of messages from a GlobalSat BU-353 USB GPS receiver.
+* node-serialport library to read a stream of messages from a GlobalSat BU-353 USB GPS receiver.
+* @const nmea
 */
 const nmea = require('@drivetech/node-nmea')
 
 /**
-* @const InfluxDB is an open source time series database.
+* InfluxDB is an open source time series database.
+* @const influx
 */
 const influx = require("influx");
 
 /**
-* @const InfluxDB database name
+* InfluxDB database name
+* @const DATABASE_NAME
 */
 const DATABASE_NAME = 'weatherStationDB'
 

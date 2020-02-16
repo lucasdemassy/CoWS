@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/tsi2019/cows#README",
   "devDependencies": {
+    "jsdoc": "^3.6.3",
     "mocha": "^7.0.0"
   },
   "dependencies": {
