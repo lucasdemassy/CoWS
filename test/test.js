@@ -1,13 +1,15 @@
 const assert = require("assert");
 const expect = require("chai").expect;
 
+/*
 async function testConnection(client){
   return client.ping(1000)
 }
-
+*/
 
 describe("Test", () => {
   it("addition", () => {
+    console.log("Test 1");
     assert.equal(3+8, 11);
   });
   /*
