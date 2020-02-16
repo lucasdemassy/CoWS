@@ -1,33 +1,34 @@
 {
   "name": "cows",
   "version": "1.0.0",
-  "description": "Connected Weather Station",
-  "main": "index.js",
+  "description": "a COnnected Weather Station",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/tsi2019/cows.git"
+    "url": "git+https://github.com/lucasdemassy/CoWS.git"
   },
-  "author": "",
+  "author": "BRES Lucas, LEBIHAN Étienne, PISKORSKI Étienne",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/tsi2019/cows/issues"
+    "url": "https://github.com/lucasdemassy/CoWS/issues"
   },
-  "homepage": "https://gitlab.com/tsi2019/cows#README",
+  "homepage": "https://github.com/lucasdemassy/CoWS#readme",
   "devDependencies": {
-    "jsdoc": "^3.6.3",
-    "mocha": "^7.0.0"
-  },
-  "dependencies": {
     "@drivetech/node-nmea": "^2.0.1",
+    "assert": "^2.0.0",
+    "chai": "^4.2.0",
     "cron": "^1.8.2",
-    "file-system": "^2.2.2",
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "gps": "^0.5.3",
+    "http-errors": "^1.7.3",
     "influx": "^5.5.1",
-    "node-nmea": "^2.0.0",
-    "serialport": "^8.0.6"
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
   }
 }
