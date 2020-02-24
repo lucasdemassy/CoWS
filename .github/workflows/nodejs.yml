@@ -41,7 +41,7 @@ jobs:
       if: success()
       with:
         name: documentation
-        path: site
+        path: documentation
     
   documentation:
     runs-on: ubuntu-latest
