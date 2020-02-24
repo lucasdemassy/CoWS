@@ -57,6 +57,7 @@ jobs:
           publish_dir: ./documentation
           
   deploy:
+    needs: [jsdoc]
     runs-on: ubuntu-latest
 
     steps:
