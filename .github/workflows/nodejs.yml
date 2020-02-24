@@ -13,6 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Generate JSDOC
+      uses: andstor/jsdoc-action@v1.0.2
+      with:
+        source_dir: ./src
+        output_dir: ./documentation
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -22,8 +27,4 @@ jobs:
     - run: npm test
       env:
         CI: true
-    - name: Generate JSDOC
-      uses: andstor/jsdoc-action@v1.0.2
-      with:
-        source_dir: ./src
-        output_dir: ./documentation
+    
