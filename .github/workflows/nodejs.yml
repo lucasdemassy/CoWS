@@ -35,5 +35,5 @@ jobs:
       with:
         ACCESS_TOKEN: ${{ secrets.cows_CI }}
         BRANCH: gh-pages
-        FOLDER: ./documentation
+        FOLDER: documentation
     
