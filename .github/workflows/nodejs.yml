@@ -23,4 +23,17 @@ jobs:
     - run: node ./node_modules/.bin/jsdoc ./src/transfData.js -d ./documentation
       env:
         CI: true
+        
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Deploy on GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.cows_CI }}
+        BRANCH: gh-pages
+        FOLDER: ./documentation
     
