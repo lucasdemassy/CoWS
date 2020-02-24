@@ -23,7 +23,28 @@ jobs:
     - run: node ./node_modules/.bin/jsdoc ./src/transfData.js -d ./documentation
       env:
         CI: true
-        
+    
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build
+        uses: andstor/jsdoc-action@v1
+        with:
+          source_dir: ./src
+          output_dir: ./documentation
+          config_file: conf.json
+          template_name: minami
+          front_page: README.md
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.cows_CI }}
+          publish_dir: ./documentation
+          
   deploy:
     runs-on: ubuntu-latest
 
