@@ -21,9 +21,9 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - name: Generate JSDOC
-      uses: andstor/jsdoc-action@v1
+      uses: andstor/jsdoc-action@v1.0.2
       with:
-        source_dir: .
+        source_dir: ./src
         output_dir: ./documentation
       env:
         CI: true
