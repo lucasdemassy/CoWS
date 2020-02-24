@@ -34,6 +34,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x  
+    - run: npm install
     - run: node ./node_modules/.bin/jsdoc ./src/transfData.js -d ./documentation
     - name: Saving site as artifact
       uses: actions/upload-artifact@v1
