@@ -2,6 +2,8 @@ name: Node.js CI
 
 on:
   push:
+    branches: 
+      - master
     branches-ignore:
       - gh-pages
 
@@ -53,7 +55,7 @@ jobs:
     
           
   deploy:
-    needs: [build]
+    needs: [build, test]
     runs-on: ubuntu-latest
 
     steps:
