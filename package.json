@@ -4,7 +4,7 @@
   "description": "a COnnected Weather Station",
   "main": "app.js",
   "scripts": {
-	"start": "http-server",
+    "start": "http-server",
     "test": "mocha"
   },
   "repository": {
@@ -30,5 +30,8 @@
     "mocha": "^7.0.1",
     "morgan": "^1.9.1",
     "path": "^0.12.7"
+  },
+  "dependencies": {
+    "http-server": "^0.12.1"
   }
 }
