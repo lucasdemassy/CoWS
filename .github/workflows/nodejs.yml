@@ -8,7 +8,7 @@ jobs:
     steps:
     - run: npm install
     - name: Generate jsdoc
-      uses: node ./node_modules/.bin/jsdoc ./src/transfData.js -d ./documentation
+      run: node ./node_modules/.bin/jsdoc ./src/transfData.js -d ./documentation
     - name: Saving documentation as artifact
       uses: actions/upload-artifact@v1
       if: success()
