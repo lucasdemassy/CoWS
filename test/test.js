@@ -5,7 +5,7 @@ const expect = require("chai").expect;
 
 describe("Test", () => {
   it("addition", () => {
-    assert.equal(3+8, 11);
+    assert.equal(3+9, 11);
   });
 /*
   describe("DB", () => {
