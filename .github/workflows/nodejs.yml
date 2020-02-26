@@ -3,10 +3,10 @@ name: Node.js CI
 on:
   push:
     branches-ignore:
-      - github-pages
+      - gh-pages
   pull_request:
     branches-ignore:
-      - github-pages
+      - gh-pages
 
 jobs:
   build:
@@ -70,6 +70,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.cows_CI }}
-        BRANCH: github-pages
+        BRANCH: gh-pages
         FOLDER: 'documentation'
     
