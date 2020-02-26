@@ -68,5 +68,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.cows_CI }}
-        BRANCH: docs
+        BRANCH: gh-pages-${{github.ref}}
         FOLDER: 'documentation'
