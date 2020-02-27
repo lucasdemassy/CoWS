@@ -1,4 +1,5 @@
 # CoWS
+![CoWS](/images/cow.png)
 
 *a Connected Weather Station*
 
@@ -27,9 +28,9 @@ Run the `npm start` & `npm test` commands in three different node versions (8.x,
 - <u>NodeJS CI other branches</u> *(./.github/worflows/nodejs_other_branches.yml)* <br> This workflow runs when an user **push on a branch except the master and gh-pages ones**. Several automatize actions happen when this event is triggered :
 
   3. ##### deploy <br>
-  If the *build* and *test* actions have succeed, the workflow push the documentation artifact on a new branch. This branch name starts by `gh-pages-` followed by the name of the branch. <br> The user can now access the documentation only by cloning the git repository and inspect the new branch. This step avoid to publish non-official documentation on the website but still can consult the documentation as a static-website.
+  If the *build* and *test* actions have succeed, the workflow push the documentation artifact on a new branch. This branch name starts by `gh-pages-` followed by the name of the branch. <br> The user can now access the documentation only by cloning the git repository and inspect the new branch. This step avoid to publish non-official documentation on the website but still can consult the documentation as a static-website. The artifact documentation can also be downloaded in the *Actions* panel.
 
-![Branch rule](/images/Github_actions_CI.png)
+![Github CI](/images/Github_actions_CI.png)
 
 ### Branch protection rule
 There is a rule to protect the `master` branch. This rule prevents merging from branches which didn't succeed the <u>NodeJS CI other branches</u> workflow.
