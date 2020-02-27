@@ -1,21 +1,20 @@
 # CoWS
 
-Connected Weather Station
+*a Connected Weather Station*
 
-install depedencies :`npm install`
 
-run test: `npm test`
+
+
 
 ### install weatherStation on the raspberry
 
 `cd weatherStation`
 
-
-`npm install`
-
+install depedencies :`npm install`
 
 run the server : `npm start`
 
+run test: `npm test`
 
 ### SSH:
 Accès à la station météo sur la Raspberry Pi : `ssh pi@piensg011` avec le mot de passe : raspberry
