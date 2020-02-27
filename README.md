@@ -3,8 +3,17 @@
 *a Connected Weather Station*
 
 
+### Continuous integration
 
+This project works with **Github Actions** in order to allow all developers' working copies to merge to a shared mainline easily and automatically.
 
+There are two workflows running for different git events :
+- <u>NodeJS CI</u> *(./.github/worflows/nodejs.yml)* <br> This workflow runs when an user **push on the branh master**. Several automatize actions happened this event is triggered :
+  - ##### build <br>
+  This action generate the jsdoc documentation thanks to  running in a NodeJS v12 environment. Next the html documentation is upload as a Github artifact and ready to deploy to a website.
+  - ##### test <br>
+  
+  - ##### deploy <br>
 
 ### install weatherStation on the raspberry
 
@@ -29,7 +38,7 @@ Pour redémarrer la simulation d'acquisition de données météorologiques toute
 
 ### Application FRONT
 
-Pour utiliser l'application web de visualisation des données vous aurez besoin d'un server http. 
+Pour utiliser l'application web de visualisation des données vous aurez besoin d'un server http.
 
 Par exemple :
 `npm install http-server -g`
@@ -39,7 +48,7 @@ Puis le lancer dans le dossier de votre clone du dépôt git:
 
 Une fois le server lancé : se rendre à l'URL localhost:8080 (si votre port est le 80) pour lancer l'application.
 
-Vous aurez alors le choix d'utiliser le mode d'acquisition de données ARCHIVE ou LIVE. 
+Vous aurez alors le choix d'utiliser le mode d'acquisition de données ARCHIVE ou LIVE.
 
 Dans les deux modes d'acquisition vous pourrez en cliquant directement sur les onglets près de la carte visualiser les données requettées par défaut par l'application (ARCHIVE le 1er Février 2020 entre minuit et 16h et LIVE sur la station PIENSG 11).
 
@@ -47,19 +56,17 @@ Pour choisir une nouvelle acquisition cliquer sur un des marqueurs de la carte e
 
 ### ARCHIVE
 
-Le mode ARCHIVE vous permet de choisir une période d'acquisition et les capteurs à requetter. 
+Le mode ARCHIVE vous permet de choisir une période d'acquisition et les capteurs à requetter.
 
-Si le calendrier fonctionne sous votre navigateur (ex: Chrome) : 
- Choisir les dates grâce au calendrier et remplir les horaires. 
+Si le calendrier fonctionne sous votre navigateur (ex: Chrome) :
+ Choisir les dates grâce au calendrier et remplir les horaires.
 
 
-Sinon (ex: Firefox) : 
- Rentrer les dates sous le format ANNEE-MM-JJTHH:MM, par exemple 2020-02-01T16:00 pour le 1er Février 2020 à 16h. 
+Sinon (ex: Firefox) :
+ Rentrer les dates sous le format ANNEE-MM-JJTHH:MM, par exemple 2020-02-01T16:00 pour le 1er Février 2020 à 16h.
 
 
 
 ### LIVE
 
 Le mode LIVE vous permet de visionner les dernières acquisitions de chaque capteur et de choisir ceux à requetter.
-
-
