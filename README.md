@@ -1,4 +1,5 @@
 # CoWS
+![CoWS](/images/cow.png)
 
 *a Connected Weather Station*
 
@@ -12,21 +13,24 @@ This project works with **Github Actions** in order to allow all developers' wor
 There are two workflows running for different git events. Their first steps are similar :
 1. ##### build <br>
 This action generate the jsdoc documentation thanks to  running in a NodeJS v12 environment. Next the html documentation is upload as a Github artifact and ready to deploy to a website.
+
 2. ##### test <br>
 Run the `npm start` & `npm test` commands in three different node versions (8.x, 10.x, 12.x). These 3 tests run simultaneously thanks to the strategy option `max-parallel`.
 
 
 
 - <u>NodeJS CI</u> *(./.github/worflows/nodejs.yml)* <br> This workflow runs when an user **push on the master branch**. Several automatize actions happen when this event is triggered :
+
   3. ##### deploy <br>
   If the *build* and *test* actions have succeed, the workflow push the documentation artifact on the `gh-pages` branch linked to Github Page. This results in publishing the documentation on a website available [here](https://lucasdemassy.github.io/CoWS/).
 
 
 - <u>NodeJS CI other branches</u> *(./.github/worflows/nodejs_other_branches.yml)* <br> This workflow runs when an user **push on a branch except the master and gh-pages ones**. Several automatize actions happen when this event is triggered :
-  3. ##### deploy <br>
-  If the *build* and *test* actions have succeed, the workflow push the documentation artifact on a new branch. This branch name starts by `gh-pages-` followed by the name of the branch. <br> The user can now access the documentation only by cloning the git repository and inspect the new branch. This step avoid to publish non-official documentation on the website but still can consult the documentation as a static-website.
 
-![Branch rule](/images/Github_actions_CI.png)
+  3. ##### deploy <br>
+  If the *build* and *test* actions have succeed, the workflow push the documentation artifact on a new branch. This branch name starts by `gh-pages-` followed by the name of the branch. <br> The user can now access the documentation only by cloning the git repository and inspect the new branch. This step avoid to publish non-official documentation on the website but still can consult the documentation as a static-website. The artifact documentation can also be downloaded in the *Actions* panel.
+
+![Github CI](/images/Github_actions_CI.png)
 
 ### Branch protection rule
 There is a rule to protect the `master` branch. This rule prevents merging from branches which didn't succeed the <u>NodeJS CI other branches</u> workflow.
