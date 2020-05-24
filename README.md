@@ -3,7 +3,6 @@
 
 *a Connected Weather Station*
 
-
 ## Continuous integration
 
 This project works with **Github Actions** in order to allow all developers' working copies to merge to a shared mainline easily and automatically.
